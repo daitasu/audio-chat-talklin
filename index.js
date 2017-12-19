@@ -1,9 +1,8 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 const VoiceText = require('voicetext');
-const voice = new VoiceText("<your api key>");
+const voice = new VoiceText("qcvytqvt6k1q9w9w");
 const fs = require('fs');
-
 const app = express();
 
 app.use(bodyParser.urlencoded({

@@ -1,4 +1,4 @@
-const accessToken = "<your agent's client access token>";
+const accessToken = "6fc2f2c748744f92b78cb380a778723f";
 const baseUrl = "https://api.api.ai/v1/";
 let i = 0;
 
@@ -13,6 +13,7 @@ $(document).ready(function() {
     switchRecognition();
   });
 });
+
 let recognition;
 function startRecognition() {
   recognition = new webkitSpeechRecognition();
@@ -30,7 +31,7 @@ function startRecognition() {
   recognition.onend = function() {
     stopRecognition();
   };
-  recognition.lang = "en-US";
+  recognition.lang = "ja-JP";
   recognition.start();
 }
 
@@ -53,7 +54,7 @@ function setInput(text) {
   send();
 }
 function updateRec() {
-  $("#rec").text(recognition ? "Stop" : "Speak");
+  $("#rec").text(recognition ? "とめる" : "はなす");
 }
 function send() {
   let text = $("#input").val();
@@ -82,7 +83,7 @@ function send() {
     headers: {
       "Authorization": "Bearer " + accessToken
     },
-    data: JSON.stringify({ query: text, lang: "en", sessionId: "somerandomthing" }),
+    data: JSON.stringify({ query: text, lang: "ja", sessionId: "somerandomthing" }),
     success: function(data) {
       let responseMessage = data.result.fulfillment.speech;
       setResponse(responseMessage);
