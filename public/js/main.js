@@ -1,4 +1,4 @@
-const accessToken = "<your agent's client access token>";
+const accessToken = "<your api access token>";
 const baseUrl = "https://api.api.ai/v1/";
 let i = 0;
 
@@ -53,7 +53,7 @@ function setInput(text) {
   send();
 }
 function updateRec() {
-  $("#rec").text(recognition ? "Stop" : "Speak");
+  $("#rec").text(recognition ? "とめる" : "はなす");
 }
 function send() {
   let text = $("#input").val();
