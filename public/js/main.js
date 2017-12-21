@@ -13,6 +13,7 @@ $(document).ready(function() {
     switchRecognition();
   });
 });
+
 let recognition;
 function startRecognition() {
   recognition = new webkitSpeechRecognition();
@@ -30,7 +31,7 @@ function startRecognition() {
   recognition.onend = function() {
     stopRecognition();
   };
-  recognition.lang = "en-US";
+  recognition.lang = "ja-JP";
   recognition.start();
 }
 
@@ -82,7 +83,7 @@ function send() {
     headers: {
       "Authorization": "Bearer " + accessToken
     },
-    data: JSON.stringify({ query: text, lang: "en", sessionId: "somerandomthing" }),
+    data: JSON.stringify({ query: text, lang: "ja", sessionId: "somerandomthing" }),
     success: function(data) {
       let responseMessage = data.result.fulfillment.speech;
       setResponse(responseMessage);
